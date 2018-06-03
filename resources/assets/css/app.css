@@ -1,0 +1,14 @@
+.content {
+  min-height: calc(100vh - 58px);
+}
+footer {
+  height: 50px;
+}
+
+.bg-gradient {
+    background: #4568DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #B06AB3, #4568DC);
+	background: linear-gradient(to left, #B06AB3, #4568DC);
+	padding-left: 150px;
+	padding-right: 150px;
+}
