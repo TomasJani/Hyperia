@@ -4,7 +4,7 @@ class LoginController
 {
     public function show()
     {
-        require 'resources/views/login.view.php';
+        return view('login');
     }
 
     public function login()

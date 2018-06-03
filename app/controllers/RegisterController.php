@@ -4,7 +4,7 @@ class RegisterController
 {
     public function show()
     {
-        require 'resources/views/register.view.php';
+        return view('register');
     }
 
     public function store()

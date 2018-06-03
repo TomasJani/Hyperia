@@ -9,7 +9,7 @@ class UserController
 
     public function edit()
     {
-
+        return view('edit');
     }
 
     public function update()
