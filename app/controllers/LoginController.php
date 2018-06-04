@@ -9,12 +9,19 @@ class LoginController
 
     public function login()
     {
+        $user = new User(App::get('pdo'));
 
+        $parameters = [
+            'surname' => Request::get('surname'),
+            'password' => Request::get('password')
+        ];
+
+        $user->attempt($parameters);
     }
 
     public function logout()
     {
-
+        User::logout();      
     }
 
 }

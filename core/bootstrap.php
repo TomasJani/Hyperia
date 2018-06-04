@@ -1,9 +1,7 @@
 <?php
 
-$app = [];
-$app['config'] = require 'config.php';
-
 require 'vendor/autoload.php';
 
-$pdo = Connection::make($app['config']['database']);
-$app['database'] = new QueryBuilder($pdo);
+App::bind('config', require 'config.php');
+App::bind('pdo', Connection::make(App::get('config')['database']));
+App::bind('database', new QueryBuilder(App::get('pdo')));

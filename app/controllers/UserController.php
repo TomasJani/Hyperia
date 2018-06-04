@@ -4,7 +4,8 @@ class UserController
 {
     public function show()
     {
-
+        $users = App::get('database')->selectAll('users');
+        return view('home', compact('users'));
     }
 
     public function edit()

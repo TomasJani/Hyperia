@@ -11,4 +11,9 @@ class Request
     {
         return $_SERVER['REQUEST_METHOD'];
     }
+
+    public static function get($data)
+    {
+        return $_POST[$data];
+    }
 }

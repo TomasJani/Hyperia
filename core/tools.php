@@ -16,3 +16,15 @@ function redirect($path)
 {
     header("Location: /{$path}");
 }
+
+function validatePassword($password)
+{
+    $passwordConfirm = Request::get('password_confirmation');
+
+    if ($passwordConfirm === $password) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

@@ -2,6 +2,8 @@
 
 require 'core/bootstrap.php';
 
+session_start();
+
 $router = new Router;
 require 'routes.php';
 
