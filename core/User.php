@@ -42,7 +42,25 @@ class User
         try {
             $statement = $this->pdo->prepare($sql);
             $statement->execute($parameters);
-        } catch (\Exception $e) {
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function update($parameters)
+    {
+        $sql = "UPDATE users SET
+                name = :name, surname = :surname, password = :password, city = :city, age = :age
+            WHERE
+                id = :id";
+
+        $parameters['password'] = password_hash($parameters['password'], PASSWORD_BCRYPT);
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($parameters);
+            $this->login(json_decode(json_encode($parameters)));
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
@@ -54,9 +72,7 @@ class User
                 if (password_verify($parameters['password'], $toVerify->password)) {
                     $this->login($toVerify);
                 }
-                dd($toVerify->password);
             }
-            dd('Bad');
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -68,18 +84,20 @@ class User
         $_SESSION['id'] = $parameters->id;
         $_SESSION['name'] = $parameters->name;
 		$_SESSION['surname'] = $parameters->surname;
-		$_SESSION['password'] = $parameters->password;
 		$_SESSION['city'] = $parameters->city;
         $_SESSION['age'] = $parameters->age;
-        $_SESSION['created_at'] = $parameters->created_at;
 
-        redirect('');
+        if (isset($parameters->created_at)) {
+            $_SESSION['created_at'] = $parameters->created_at;
+        }
+
+        redirect('home');
     }
 
     public static function logout()
     {
         session_destroy();
 
-        redirect('');
+        redirect('login');
     }
 }

@@ -1,5 +1,7 @@
 <?php require 'layout/header.php'; ?>
 
-<h1>Home Page</h1>
+<div class="container">
+    <h1>Home Page</h1>
+</div>
 
 <?php require 'layout/footer.php'; ?>
