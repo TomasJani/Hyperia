@@ -13,7 +13,16 @@
         <div class="col-sm-2 align-middle">
             <div class="btn-group-vertical float-right p-4">
                 <a class="btn btn-primary" href="/edit">Edit</a>
-                <a class="btn btn-danger" href="/delete">Delete</a>
+                <form action="/delete" method="post">
+                    <div class="form-group">
+                        <input class="form-control " type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+                    </div>
+                    <div class="form-group my-0">
+                        <button type="submit" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
 

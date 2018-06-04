@@ -65,13 +65,29 @@ class User
         }
     }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM users WHERE id = :id LIMIT 1";
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute(['id' => $id]);
+            User::logout();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function attempt($parameters)
     {
         try {
-            if ($toVerify = App::get('database')->getBySurname($parameters['surname'])[0]) {
+            if (isset(App::get('database')->getBySurname($parameters['surname'])[0])) {
                 if (password_verify($parameters['password'], $toVerify->password)) {
                     $this->login($toVerify);
                 }
+            }
+            else {
+                throw new \Exception("Check your credentials.");
             }
         } catch (PDOException $e) {
             die($e->getMessage());

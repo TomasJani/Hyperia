@@ -27,7 +27,6 @@ class UserController
         ];
 
         User::validate($parameters);
-
         $user->update($parameters);
 
         return redirect('home');
@@ -35,7 +34,9 @@ class UserController
 
     public function delete()
     {
+        $user = new User(App::get('pdo'));
 
+        $user->delete(Request::get('id'));
     }
 
 }
