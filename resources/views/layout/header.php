@@ -14,7 +14,7 @@
             <nav class="navbar navbar-expand-sm bg-gradient mb-3 py-3">
                 <div class="container">
                     <a class="navbar-brand text-white" href="/">
-                        <h3>Hyperia Zadanie</h3>
+                        <h3>Hyperia Assignment</h3>
                     </a>
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarNav">

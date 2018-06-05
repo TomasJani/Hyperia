@@ -18,6 +18,8 @@ class ComposerStaticInitd1e23bb32480afc2056761760a9eb3b6
         'Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
         'HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
         'LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
+        'Middleware' => __DIR__ . '/../..' . '/app/Middleware.php',
+        'Pagination' => __DIR__ . '/../..' . '/core/Pagination.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'RegisterController' => __DIR__ . '/../..' . '/app/controllers/RegisterController.php',
         'Request' => __DIR__ . '/../..' . '/core/Request.php',

@@ -15,6 +15,7 @@ function view($name, $data = [])
 function redirect($path)
 {
     header("Location: /{$path}");
+    die();
 }
 
 function validatePassword($password)

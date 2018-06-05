@@ -4,11 +4,15 @@ class LoginController
 {
     public function show()
     {
+        Middleware::guest();
+
         return view('login');
     }
 
     public function login()
     {
+        Middleware::guest();
+
         $user = new User(App::get('pdo'));
 
         $parameters = [
@@ -21,7 +25,8 @@ class LoginController
 
     public function logout()
     {
-        User::logout();      
-    }
+        Middleware::auth();
 
+        User::logout();
+    }
 }

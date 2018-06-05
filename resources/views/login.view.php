@@ -6,6 +6,8 @@
 
     <form method="POST" action="">
 
+        <?php require 'partials/errors.php'; ?>
+
         <div class="form-group row">
             <label for="surname" class="col-md-4 col-form-label text-md-right">Surname</label>
 

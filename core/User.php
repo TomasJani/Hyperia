@@ -11,20 +11,26 @@ class User
 
     public function validate($parameters)
     {
+        $formErrors = [];
+
         if (! ((strlen($parameters['name'])) > 3 and (strlen($parameters['name']) < 45))) {
-            throw new \Exception("Check your name.");
+            array_push($formErrors, "Check your name.");
         }
 
         if (! ((strlen($parameters['surname'])) > 3 and (strlen($parameters['surname']) < 45))) {
-            throw new \Exception("Check your surname.");
+            array_push($formErrors, "Check your surname.");
         }
 
         if (! ((strlen($parameters['city'])) > 3 and (strlen($parameters['city']) < 45))) {
-            throw new \Exception("Check your city.");
+            array_push($formErrors, "Check your city.");
         }
 
         if (! ((strlen($parameters['password']) > 3) and (strlen($parameters['password']) < 45) and validatePassword($parameters['password']))) {
-            throw new \Exception("Check your password.");
+            array_push($formErrors, "Check your password.");
+        }
+
+        if (! ($formErrors == [])) {
+            return  view('register', compact('formErrors'));
         }
     }
 
@@ -59,6 +65,7 @@ class User
         try {
             $statement = $this->pdo->prepare($sql);
             $statement->execute($parameters);
+            $_SESSION['message'] = 'You have successfully updated your data.';
             $this->login(json_decode(json_encode($parameters)));
         } catch (PDOException $e) {
             die($e->getMessage());
@@ -80,14 +87,23 @@ class User
 
     public function attempt($parameters)
     {
+        $formErrors = [];
+
         try {
             if (isset(App::get('database')->getBySurname($parameters['surname'])[0])) {
+                $toVerify = App::get('database')->getBySurname($parameters['surname'])[0];
                 if (password_verify($parameters['password'], $toVerify->password)) {
+                    $_SESSION['message'] = 'You have been successfully logged in.';
                     $this->login($toVerify);
+                }
+                else {
+                    array_push($formErrors, 'Check your password.');
+                    return view('login', compact('formErrors'));
                 }
             }
             else {
-                throw new \Exception("Check your credentials.");
+                array_push($formErrors, 'Check your surname.');
+                return view('login', compact('formErrors'));
             }
         } catch (PDOException $e) {
             die($e->getMessage());
@@ -107,13 +123,13 @@ class User
             $_SESSION['created_at'] = $parameters->created_at;
         }
 
-        redirect('home');
+        return redirect('home');
     }
 
     public static function logout()
     {
         session_destroy();
 
-        redirect('login');
+        return redirect('login');
     }
 }

@@ -4,17 +4,22 @@ class UserController
 {
     public function show()
     {
-        $users = App::get('database')->selectAll('users');
-        return view('home', compact('users'));
+        Middleware::auth();
+
+        Pagination::paginate();
     }
 
     public function edit()
     {
+        Middleware::auth();
+
         return view('edit');
     }
 
     public function update()
     {
+        Middleware::auth();
+
         $user = new User(App::get('pdo'));
 
         $parameters = [
@@ -34,6 +39,8 @@ class UserController
 
     public function delete()
     {
+        Middleware::auth();
+
         $user = new User(App::get('pdo'));
 
         $user->delete(Request::get('id'));

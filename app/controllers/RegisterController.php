@@ -4,11 +4,15 @@ class RegisterController
 {
     public function show()
     {
+        Middleware::guest();
+
         return view('register');
     }
 
     public function store()
     {
+        Middleware::guest();
+
         $user = new User(App::get('pdo'));
 
         $parameters = [
@@ -24,7 +28,6 @@ class RegisterController
 
         $user->create($parameters);
         $user->attempt($parameters);
-
     }
 
 }

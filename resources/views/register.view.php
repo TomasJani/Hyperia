@@ -6,6 +6,8 @@
 
     <form method="POST" action="/register">
 
+        <?php require 'partials/errors.php'; ?>
+
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 

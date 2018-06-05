@@ -13,6 +13,8 @@ return array(
     'Connection' => $baseDir . '/core/database/Connection.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
+    'Middleware' => $baseDir . '/app/Middleware.php',
+    'Pagination' => $baseDir . '/core/Pagination.php',
     'QueryBuilder' => $baseDir . '/core/database/QueryBuilder.php',
     'RegisterController' => $baseDir . '/app/controllers/RegisterController.php',
     'Request' => $baseDir . '/core/Request.php',
