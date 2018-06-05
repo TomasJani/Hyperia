@@ -18,6 +18,7 @@ class RegisterController
         $parameters = [
             'name' => Request::get('name'),
             'surname' => Request::get('surname'),
+            'email' => Request::get('email'),
             'password' => Request::get('password'),
             'city' => Request::get('city'),
             'age' => Request::get('age'),

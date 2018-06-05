@@ -21,11 +21,15 @@ class User
             array_push($formErrors, "Check your surname.");
         }
 
+        if(Validate::email($parameters['email'])) {
+            array_push($formErrors, "Email already exist.");
+        };
+
         if (! ((strlen($parameters['city'])) > 3 and (strlen($parameters['city']) < 45))) {
             array_push($formErrors, "Check your city.");
         }
 
-        if (! ((strlen($parameters['password']) > 3) and (strlen($parameters['password']) < 45) and validatePassword($parameters['password']))) {
+        if (! ((strlen($parameters['password']) > 3) and (strlen($parameters['password']) < 45) and Validate::password($parameters['password']))) {
             array_push($formErrors, "Check your password.");
         }
 
@@ -36,11 +40,11 @@ class User
 
     public function create($parameters)
     {
-        $sql = 'insert into
+        $sql = 'INSERT INTO
             users (
-                name, surname, password, city, age, created_at)
-            values (
-                :name, :surname, :password, :city, :age, :created_at
+                name, surname, email, password, city, age, created_at)
+            VALUES (
+                :name, :surname, :email, :password, :city, :age, :created_at
                 )';
 
         $parameters['password'] = password_hash($parameters['password'], PASSWORD_BCRYPT);
@@ -90,8 +94,8 @@ class User
         $formErrors = [];
 
         try {
-            if (isset(App::get('database')->getBySurname($parameters['surname'])[0])) {
-                $toVerify = App::get('database')->getBySurname($parameters['surname'])[0];
+            if (isset(App::get('database')->getByEmail($parameters['email'])[0])) {
+                $toVerify = App::get('database')->getByEmail($parameters['email'])[0];
                 if (password_verify($parameters['password'], $toVerify->password)) {
                     $_SESSION['message'] = 'You have been successfully logged in.';
                     $this->login($toVerify);
@@ -102,11 +106,11 @@ class User
                 }
             }
             else {
-                array_push($formErrors, 'Check your surname.');
+                array_push($formErrors, 'Check your email.');
                 return view('login', compact('formErrors'));
             }
         } catch (PDOException $e) {
-            die($e->getMessage());
+            $e->getMessage();
         }
 
     }
@@ -119,6 +123,9 @@ class User
 		$_SESSION['city'] = $parameters->city;
         $_SESSION['age'] = $parameters->age;
 
+        if (isset($parameters->email)) {
+            $_SESSION['email'] = $parameters->email;
+        }
         if (isset($parameters->created_at)) {
             $_SESSION['created_at'] = $parameters->created_at;
         }

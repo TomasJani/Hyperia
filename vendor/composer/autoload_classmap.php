@@ -11,7 +11,6 @@ return array(
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitd1e23bb32480afc2056761760a9eb3b6' => $vendorDir . '/composer/autoload_static.php',
     'Connection' => $baseDir . '/core/database/Connection.php',
-    'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'LoginController' => $baseDir . '/app/controllers/LoginController.php',
     'Middleware' => $baseDir . '/app/Middleware.php',
     'Pagination' => $baseDir . '/core/Pagination.php',
@@ -21,4 +20,5 @@ return array(
     'Router' => $baseDir . '/core/Router.php',
     'User' => $baseDir . '/core/User.php',
     'UserController' => $baseDir . '/app/controllers/UserController.php',
+    'Validate' => $baseDir . '/core/Validate.php',
 );

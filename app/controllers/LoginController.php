@@ -16,7 +16,7 @@ class LoginController
         $user = new User(App::get('pdo'));
 
         $parameters = [
-            'surname' => Request::get('surname'),
+            'email' => Request::get('email'),
             'password' => Request::get('password')
         ];
 

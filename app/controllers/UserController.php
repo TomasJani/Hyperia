@@ -13,7 +13,16 @@ class UserController
     {
         Middleware::auth();
 
-        return view('edit');
+        if(isset($_POST['id'])) {
+            $id = Request::get('id');
+            $toEdit = App::get('database')->getById($id)[0];
+            $toEdit = json_decode(json_encode($toEdit), true);;
+        }
+        else {
+            $toEdit = $_SESSION;
+        }
+
+        return view('edit', compact('toEdit'));
     }
 
     public function update()

@@ -8,7 +8,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+                <input type="hidden" name="id" value="<?php echo $toEdit['id'] ?>">
             </div>
         </div>
 
@@ -16,7 +16,7 @@
             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
             <div class="col-md-6">
-                <input id="name" type="text" class="form-control" name="name" value="<?php echo $_SESSION['name'] ?>" required autofocus>
+                <input id="name" type="text" class="form-control" name="name" value="<?php echo $toEdit['name'] ?>" required autofocus>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             <label for="surname" class="col-md-4 col-form-label text-md-right">Surname</label>
 
             <div class="col-md-6">
-                <input id="surname" type="text" class="form-control" name="surname" value="<?php echo $_SESSION['surname'] ?>" required>
+                <input id="surname" type="text" class="form-control" name="surname" value="<?php echo $toEdit['surname'] ?>" required>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
             <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
 
             <div class="col-md-6">
-                <input id="city" type="text" class="form-control" name="city" value="<?php echo $_SESSION['city'] ?>" required>
+                <input id="city" type="text" class="form-control" name="city" value="<?php echo $toEdit['city'] ?>" required>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
 
             <div class="col-md-6">
-                <input id="age" type="number" class="form-control" name="age" value="<?php echo $_SESSION['age'] ?>" required>
+                <input id="age" type="number" class="form-control" name="age" value="<?php echo $toEdit['age'] ?>" required>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
             <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
             <div class="col-md-6">
-                <input id="password" type="password" class="form-control" name="password" value="******" required>
+                <input id="password" type="password" class="form-control" name="password" required>
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
 
             <div class="col-md-6">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" value="******" required>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
             </div>
         </div>
 

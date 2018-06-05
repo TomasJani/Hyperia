@@ -15,9 +15,16 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function getBySurname($surname) {
-        $statement = $this->pdo->prepare("select * from users where surname = :surname limit 1");
-        $statement->execute(['surname' => $surname]);
+    public function getByEmail($email) {
+        $statement = $this->pdo->prepare("select * from users where email = :email limit 1");
+        $statement->execute(['email' => $email]);
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function getById($id) {
+        $statement = $this->pdo->prepare("select * from users where id = :id limit 1");
+        $statement->execute(['id' => $id]);
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }

@@ -19,10 +19,6 @@
                     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-outline-light mr-2" href="/">Home Page</a>
-                            </li>
-
                             <?php if (isset($_SESSION['surname'])): ?>
                                 <li class="nav-item">
                                     <a class="nav-link btn btn-outline-light mr-2" href="/home">
@@ -37,7 +33,7 @@
                                     <a class="nav-link btn btn-outline-light mr-2" href="/login">Login</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-outline-light" href="/register">Register</a>
+                                    <a class="nav-link btn btn-outline-light" href="/">Register</a>
                                 </li>
                             <?php endif; ?>
 

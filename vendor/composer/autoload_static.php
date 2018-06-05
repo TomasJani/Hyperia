@@ -16,7 +16,6 @@ class ComposerStaticInitd1e23bb32480afc2056761760a9eb3b6
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitd1e23bb32480afc2056761760a9eb3b6' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
-        'HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
         'LoginController' => __DIR__ . '/../..' . '/app/controllers/LoginController.php',
         'Middleware' => __DIR__ . '/../..' . '/app/Middleware.php',
         'Pagination' => __DIR__ . '/../..' . '/core/Pagination.php',
@@ -26,6 +25,7 @@ class ComposerStaticInitd1e23bb32480afc2056761760a9eb3b6
         'Router' => __DIR__ . '/../..' . '/core/Router.php',
         'User' => __DIR__ . '/../..' . '/core/User.php',
         'UserController' => __DIR__ . '/../..' . '/app/controllers/UserController.php',
+        'Validate' => __DIR__ . '/../..' . '/core/Validate.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
