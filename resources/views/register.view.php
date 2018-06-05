@@ -32,7 +32,7 @@
                 <input id="email" type="email" class="form-control" name="email" value="" required>
             </div>
         </div>
-        
+
         <div class="form-group row">
             <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
 
@@ -67,7 +67,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" name="register" values="register" class="btn btn-primary">
                     Register
                 </button>
             </div>

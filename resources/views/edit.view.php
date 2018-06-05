@@ -6,6 +6,8 @@
 
     <form method="POST" action="/update">
 
+        <?php require 'partials/errors.php'; ?>
+
         <div class="form-group row">
             <div class="col-md-6">
                 <input type="hidden" name="id" value="<?php echo $toEdit['id'] ?>">
@@ -62,7 +64,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" name="edit" value="edit" class="btn btn-primary">
                     Update
                 </button>
             </div>

@@ -21,9 +21,11 @@ class User
             array_push($formErrors, "Check your surname.");
         }
 
-        if(Validate::email($parameters['email'])) {
-            array_push($formErrors, "Email already exist.");
-        };
+        if (isset($parameters['email'])) {
+            if(Validate::email($parameters['email'])) {
+                array_push($formErrors, "Email already exist.");
+            };
+        }
 
         if (! ((strlen($parameters['city'])) > 3 and (strlen($parameters['city']) < 45))) {
             array_push($formErrors, "Check your city.");
@@ -33,8 +35,12 @@ class User
             array_push($formErrors, "Check your password.");
         }
 
-        if (! ($formErrors == [])) {
-            return  view('register', compact('formErrors'));
+        if (!($formErrors == []) and (isset($_POST['register']))) {
+            return view('register', compact('formErrors'));
+        }
+        if (!($formErrors == []) and (isset($_POST['edit']))) {
+            $toEdit = $parameters;
+            return view('edit', compact('formErrors', 'toEdit'));
         }
     }
 
@@ -83,7 +89,12 @@ class User
         try {
             $statement = $this->pdo->prepare($sql);
             $statement->execute(['id' => $id]);
-            User::logout();
+            if ($id === $_SESSION['id']) {
+                User::logout();
+            }
+            else {
+                return redirect('home');
+            }
         } catch (PDOException $e) {
             die($e->getMessage());
         }
