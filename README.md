@@ -9,6 +9,8 @@ Laracast - The PHP Practitioner
 
 Phinx (plugin) - Migrácie
 
+Pagination
+
 # Ako spustiť:
 1. Nastavenie databázy v súboroch phinx.yml (pre migrácie) a config.php
 2. Migrácia databázy: vendor/bin/phinx migrate -e development
