@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'hyperia',
+        'name' => 'hyperia_test',
         'username' => 'root',
         'password' => 'Tomas007',
         'connection' => 'mysql:host=127.0.0.1',

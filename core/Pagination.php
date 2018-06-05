@@ -13,7 +13,7 @@ class Pagination
             ')->fetchColumn();
 
             // How many items to list per page
-            $limit = 20;
+            $limit = 12;
 
             // How many pages will there be
             $pages = ceil($total / $limit);

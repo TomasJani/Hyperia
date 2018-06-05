@@ -6,5 +6,8 @@
         "files": [
             "core/tools.php"
         ]
+    },
+    "require": {
+        "robmorgan/phinx": "^0.9.2"
     }
 }

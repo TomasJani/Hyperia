@@ -13,11 +13,10 @@
             <small>Created at: <?php echo date("F j, Y, g:i a", strtotime($_SESSION['created_at'])) ?></small>
         </div>
 
-        <div class="col-sm-1 py-3">
-            <div class="row">
+        <div class="col-sm-1 p-2 ">
                 <form action="/edit" method="post">
-                    <div class="form-group ml-3 mr-2 mt-0">
-                        <button type="submit" class="btn btn-primary btn-sm btn-block">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm btn-block mb-0">
                             Edit
                         </button>
                     </div>
@@ -27,13 +26,12 @@
                     <div class="form-group">
                         <input class="form-control" type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
                     </div>
-                    <div class="form-group my-0">
-                        <button type="submit" class="btn btn-danger btn-sm">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-danger btn-sm btn-block">
                             Delete
                         </button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 
