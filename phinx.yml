@@ -7,19 +7,19 @@ environments:
     default_database: development
     production:
         adapter: mysql
-        host: localhost
+        host: database
         name: hyperia_test
         user: root
-        pass: 'Tomas007'
+        pass: ''
         port: 3306
         charset: utf8
 
     development:
         adapter: mysql
         host: localhost
-        name: hyperia_test
+        name: database
         user: root
-        pass: 'Tomas007'
+        pass: ''
         port: 3306
         charset: utf8
 
